@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Projet1SymfonyController!{% endblock %}
+
+{% block body %}
+
+{% for message in app.flashes('success') %}
+	<div class="alert alert-success text-center">{{ message }}</div>
+{% endfor %}
+
+<section class="row employes">
+	{% for employes in tabEmployees %}
+		<employes class="col-md-4 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+			<h2>{{ employes.title }}</h2>
+			<div class="metadata">Ecrit le {{ article.createdAt|date('d/m/Y à H:i:s') }} dans la catégorie Politique</div>
+			{# date() est un filtre twig : il permet de convertir/formater un objet DateTime en une chaîne de caractères #}
+			<div class="content">
+				<img src="{{ article.image }}" alt="">
+				{{ article.content|raw }}
+				{# raw est un filtre twig qui permet d'interpréter les balises HTML #}
+                <a href="{{ path('blog_show', {id: article.id}) }}" class="btn btn-primary">Lire la suite</a>
+                {# path() est une fonction twig permettant de générer un lien vers une page #}
+                {# cette fonction prend en 1er arg le nom de la route (name=xxx) #}
+				{# le 2ème arg est un tableau de paramètres de route #}
+				{# ici, pour pouvoir générer un lien vers la route blog_show, path() a besoin d'un paramètre id qui correspond à l'id d'un article #}
+			</div>
+		</employes>
+		{% endfor %}
+	</section>
+{% endblock %}
