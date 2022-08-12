@@ -41,7 +41,7 @@ class Projet1SymfonyController extends AbstractController
         if (!$employes) { 
             $employes = new Employes; 
         }       
-        $form = $this->createForm(EmployesType::class, $employes);
+        $form = $this->createForm(EmployesFormType::class, $employes);
         $form->handleRequest($superglobals);
         if ($form->isSubmitted() && $form->isValid()) {         
             $manager->persist($employes); 
