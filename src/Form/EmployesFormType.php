@@ -11,14 +11,21 @@ class EmployesFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('field_name')
+            ->add('prenom')
+            ->add('nom')
+            ->add('telephone')
+            ->add('email')
+            ->add('adresse')
+            ->add('poste')
+            ->add('salaire')
+            ->add('datedenaissance')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'data_class' => Article::class,
         ]);
     }
 }

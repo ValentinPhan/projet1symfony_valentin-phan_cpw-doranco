@@ -32,8 +32,8 @@ class Employes
     #[ORM\Column(length: 255)]
     private ?string $poste = null;
 
-    #[ORM\Column]
-    private ?float $salaire = null;
+    #[ORM\Column(length: 255)]
+    private ?string $salaire = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $datedenaissance = null;
@@ -115,12 +115,12 @@ class Employes
         return $this;
     }
 
-    public function getSalaire(): ?float
+    public function getSalaire(): ?string
     {
         return $this->salaire;
     }
 
-    public function setSalaire(float $salaire): self
+    public function setSalaire(string $salaire): self
     {
         $this->salaire = $salaire;
 
