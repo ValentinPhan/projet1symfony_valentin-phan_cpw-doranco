@@ -56,7 +56,7 @@ class Projet1SymfonyController extends AbstractController
         $employes = $repo->find($id);
         $manager->remove($employes);
         $manager->flush();
-        $this->addFlash('success', "L'article a bien été retiré !");
+        $this->addFlash('success', "L'employé a bien été retiré !");
         return $this->redirectToRoute("app_projet1_symfony");
     }
 }
