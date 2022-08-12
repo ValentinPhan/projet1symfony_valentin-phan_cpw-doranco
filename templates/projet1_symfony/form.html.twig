@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<h1>
+{% if editMode %}
+    Mise à jour des informations concernant l'employé
+{% else %}
+    Inscription d'un nouvel employé
+{% endif %}
+</h1>
+{{ form_start(formEmployes, {attr: {novalidate: 'novalidate'}}) }}
+{{ form_row(formEmployes.prenom )}}
+{{ form_row(formEmployes.nom ) }}
+{{ form_row(formEmployes.telephone) }}
+{{ form_row(formEmployes.email) }}
+{{ form_row(formEmployes.adresse) }}
+{{ form_row(formEmployes.poste) }}
+{{ form_row(formEmployes.salaire) }}
+{{ form_row(formEmployes.datedenaissance) }}
+<button type="submit" class="btn btn-primary mt-2">
+{% if editMode %}
+    Enregistrer les modifications
+{% else %}
+    Valider
+{% endif %}
+</button>
+{{ form_end(formArticle) }}
+{% endblock %}

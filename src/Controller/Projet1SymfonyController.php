@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class Projet1SymfonyController extends AbstractController
 {
-    #[Route('/', name: 'app_projet1_symfony')]
+    #[Route('/projet1_symfony', name: 'app_projet1_symfony')]
     public function index(EmployesRepository $repo): Response
     {
         $employes = $repo->findAll();
@@ -34,10 +34,6 @@ class Projet1SymfonyController extends AbstractController
         $employes = $repo->find($id);
         return $this->render('projet1_symfony/show.html.twig', ['employes' => $employes]);
     }
-    /**
-     * @Route("/blog/new", name="blog_create")
-     * @Route("/blog/edit/{id}", name="blog_edit")
-     */
     #[Route('/projet1_symfony/new', name: 'projet1_symfony_create')]
     #[Route('/projet1_symfony/edit/{id}', name: 'projet1_symfony_edit')]
     public function form(Request $superglobals, EntityManagerInterface $manager, Employes $employes = null)
@@ -45,7 +41,7 @@ class Projet1SymfonyController extends AbstractController
         if (!$employes) { 
             $employes = new Employes; 
         }       
-        $form = $this->createForm(ArticleType::class, $employes); // je lie le formulaire à $article
+        $form = $this->createForm(EmployesType::class, $employes);
         $form->handleRequest($superglobals);
         if ($form->isSubmitted() && $form->isValid()) {         
             $manager->persist($employes); 

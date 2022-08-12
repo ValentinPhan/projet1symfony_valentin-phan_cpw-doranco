@@ -35,8 +35,8 @@ class Employes
     #[ORM\Column(length: 255)]
     private ?string $salaire = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $datedenaissance = null;
+    #[ORM\Column(length: 255)]
+    private ?string $datedenaissance = null;
 
     public function getId(): ?int
     {
@@ -127,12 +127,12 @@ class Employes
         return $this;
     }
 
-    public function getDatedenaissance(): ?\DateTimeInterface
+    public function getDatedenaissance(): ?string
     {
         return $this->datedenaissance;
     }
 
-    public function setDatedenaissance(\DateTimeInterface $datedenaissance): self
+    public function setDatedenaissance(string $datedenaissance): self
     {
         $this->datedenaissance = $datedenaissance;
 
