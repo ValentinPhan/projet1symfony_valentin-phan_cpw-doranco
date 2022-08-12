@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Employes;
+use App\Form\EmployesFormType;
 use App\Repository\EmployesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
